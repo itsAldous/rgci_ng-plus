@@ -53,6 +53,7 @@ function createDragElement(id,name,x,y,list=[]) {
 
 /*
 grass: ["Grass",()=>[player,"grass"],'GrassBase','Curr/Grass'],
+flower: ["Flower",()=>[player,"flower"],'FlowerBase','Curr/Flower'],
 perk: ["Perk",()=>[tmp,"perkUnspent"],'PerkBase','Curr/Perks'],
 pp: ["PP",()=>[player,"pp"],'PrestigeBase','Curr/Prestige'],
 plat: ["Platinum",()=>[player,"plat"],"PlatBase",'Curr/Platinum'],
@@ -90,6 +91,10 @@ function changeDragPin(id,i) {
 el.setup.drag = () => {
     createDragElement('bonus',"Bonuses",20,90,[
         {
+            name: "Flower Generation",
+            icon: ['FlowerBase','Icons/Flower'],
+            get primary_text() { return formatMult(tmp.FlowerGen) },
+        },{
             name: "XP Multiplier",
             icon: ['PrestigeBase','Icons/XP'],
             get primary_text() { return formatMult(tmp.XPGain) },
