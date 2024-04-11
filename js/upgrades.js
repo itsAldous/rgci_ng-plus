@@ -134,6 +134,22 @@ const UPGS = {
                     let x = i*10
 
                     return x
+                },{
+                max: 100,
+
+                title: "Flower Generation",
+                desc: `Increase flower generation by <b class="green">10</b> per level.Flowers can be spent to upgrades in each upgrade board.`,
+
+                res: "grass",
+                icon: ['Icons/Flower'],
+                
+                cost: i => Decimal.pow(3,i).mul(20).ceil(),
+                bulk: i => i.div(1e3).max(1).log(10).floor().add(1),
+
+                effect(i) {
+                    let x = i
+
+                    return x
                 },
                 effDesc: x => "+"+format(x,0),
             },
